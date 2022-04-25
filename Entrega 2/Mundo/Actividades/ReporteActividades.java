@@ -1,4 +1,4 @@
-package Actividades;
+package Mundo.Actividades;
 
 import java.io.Serializable;
 import java.util.ArrayList;

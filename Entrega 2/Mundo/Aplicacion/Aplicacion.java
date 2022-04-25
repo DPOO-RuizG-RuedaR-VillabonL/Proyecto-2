@@ -1,11 +1,11 @@
-package Aplicacion;
+package Mundo.Aplicacion;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import Proyectos.Proyecto;
+import Mundo.Proyectos.Proyecto;
 
 public class Aplicacion {
 

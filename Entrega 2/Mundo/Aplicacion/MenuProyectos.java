@@ -1,4 +1,4 @@
-package Aplicacion;
+package Mundo.Aplicacion;
 
 import java.io.BufferedReader;
 import java.io.EOFException;
@@ -13,8 +13,8 @@ import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import Actividades.Participante;
-import Proyectos.Proyecto;
+import Mundo.Actividades.Participante;
+import Mundo.Proyectos.Proyecto;
 
 public class MenuProyectos
 {

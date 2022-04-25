@@ -1,7 +1,8 @@
-package Proyectos;
+package Mundo.Proyectos;
 
 import java.util.ArrayList;
-import Actividades.Participante;
+
+import Mundo.Actividades.Participante;
 
 import java.io.Serializable;
 import java.time.LocalDate;

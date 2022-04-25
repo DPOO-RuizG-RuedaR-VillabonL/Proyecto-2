@@ -1,20 +1,19 @@
 
-package Aplicacion;
+package Mundo.Aplicacion;
 
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-
-import Actividades.Actividad;
-import Actividades.Participante;
-import Actividades.ReporteActividades;
-import Proyectos.Proyecto;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import Mundo.Actividades.Actividad;
+import Mundo.Actividades.Participante;
+import Mundo.Actividades.ReporteActividades;
+import Mundo.Proyectos.Proyecto;
 
 
 public class MenuActividades
