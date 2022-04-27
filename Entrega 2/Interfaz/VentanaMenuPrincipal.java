@@ -1,5 +1,7 @@
 package Interfaz;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 
 import Mundo.Aplicacion.MenuProyectos;
@@ -12,6 +14,7 @@ public class VentanaMenuPrincipal extends JFrame {
     public VentanaMenuPrincipal(){
         menuProyectos = new MenuProyectos();
         pCrearProyecto = new PCrearProyecto(this);
+        add(pCrearProyecto, BorderLayout.CENTER);
 
         setTitle("Gestor de Proyectos");
         setSize(1000, 700);
