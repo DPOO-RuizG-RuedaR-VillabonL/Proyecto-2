@@ -1,14 +1,4 @@
 package Interfaz;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.*;
-
-import javax.swing.JButton; 
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.border.*;
-import javax.swing.*;
 import javax.swing.JFrame;
 
 

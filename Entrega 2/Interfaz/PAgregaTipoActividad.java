@@ -1,6 +1,4 @@
 package Interfaz;
-
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.*;
 
@@ -9,10 +7,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.*;
 import javax.swing.*;
-import javax.swing.JFrame;
+
 
 public class PAgregaTipoActividad extends JPanel{
-    private VentanaMenuActividades ventanaMenuActividades;
     private JPanel panelNorte;
     private JPanel panelCentral;
     private JPanel panelAbajo;
@@ -22,9 +19,8 @@ public class PAgregaTipoActividad extends JPanel{
 
     public void PMenuActividades (VentanaMenuActividades ventanaMenuActividades){
 
-        this.ventanaMenuActividades = ventanaMenuActividades;
         this.setBackground(new Color(02,28, 30) ); //fondo principal
-        GridLayout grid = new GridLayout(3, 1, 5, 20); //será un tabla (fila, columna, espacios entre cuadros (horizotal y vertical))
+        GridLayout grid = new GridLayout(3, 1, 5, 20);
         this.setLayout(grid);
         //crear panel norte
         panelNorte = new JPanel();
@@ -40,7 +36,7 @@ public class PAgregaTipoActividad extends JPanel{
         //crear panel central
         panelCentral = new JPanel();
         panelCentral.setBackground(new Color(02,28, 30) ); //fondo principal
-        GridLayout grid1 = new GridLayout(1, 2, 0, 5); //será un tabla (fila, columna, espacios entre cuadros (horizotal y vertical))
+        GridLayout grid1 = new GridLayout(1, 2, 0, 5); 
         panelCentral.setLayout(grid1);
         //crear y agregar elementos de panel central
         JLabel elemento = new JLabel("Seleccione una opción: ", SwingConstants.CENTER);
@@ -55,7 +51,7 @@ public class PAgregaTipoActividad extends JPanel{
         //crear panel sur
         panelAbajo = new JPanel();
         panelAbajo.setBackground(new Color(02,28, 30) ); //fondo principal
-        GridLayout grid2 = new GridLayout(1, 2, 0, 5); //será un tabla (fila, columna, espacios entre cuadros (horizotal y vertical))
+        GridLayout grid2 = new GridLayout(1, 2, 0, 5); 
         panelAbajo.setLayout(grid2);
         //crear y agregar elementos de panel sur
         JButton boton1 = (new JButton("Menu principal"));
