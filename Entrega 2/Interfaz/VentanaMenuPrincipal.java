@@ -1,20 +1,5 @@
 package Interfaz;
-
-
 import javax.swing.JFrame;
-
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.*;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.border.*;
-import javax.swing.*;
-import javax.swing.JFrame;
-
 import Mundo.Aplicacion.MenuProyectos;
 
 @SuppressWarnings("serial")
