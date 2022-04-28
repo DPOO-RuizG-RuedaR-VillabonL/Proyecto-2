@@ -13,21 +13,19 @@ import javax.swing.border.EmptyBorder;
 
 public class PCrearProyecto extends JPanel
 {
-    private VentanaMenuPrincipal ventanaMenuPrincipal;
     private JLabel label;
     private JPanel panelCentral;
     private JPanel panelAbajo;
 
     public PCrearProyecto(VentanaMenuPrincipal ventanaMenuPrincipal){
 
-        this.ventanaMenuPrincipal = ventanaMenuPrincipal;
         this.setLayout(new BorderLayout());
         label = new JLabel("Crear Proyecto", SwingConstants.CENTER);
         label.setFont(new Font("Aharoni", Font.BOLD, 30));
         label.setBorder(new EmptyBorder(50, 0, 100, 0)); //hacer borde más grueso apra tener un espacio vacio entre cosas
         this.add(label, BorderLayout.NORTH); // añadir label al panel en el norte
 
-        panelCentral = new JPanel(); // crear un penel dentro de otro
+        panelCentral = new JPanel(); // crear un panel dentro de otro
         GridLayout grid = new GridLayout(4, 2, 5, 2); //será un tabla (fila, columna, espacios entre cuadros (horizotal y vertical))
         panelCentral.setLayout(grid);
         JTextField textoNombre = new JTextField(SwingConstants.CENTER); // se crean los text field 

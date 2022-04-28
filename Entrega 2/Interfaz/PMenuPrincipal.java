@@ -29,7 +29,7 @@ public class PMenuPrincipal extends JPanel {
         //Se crea y se añade el titulo en el panel principal
         JLabel titulo = new JLabel("¡Bienvenido al Gestor de proyectos!", SwingConstants.CENTER);
         titulo.setOpaque(true);
-        titulo.setFont(new Font("Aharoni", Font.BOLD, 25));
+        titulo.setFont(new Font("Aharoni", Font.BOLD, 26 ));
         titulo.setBorder(new EmptyBorder(50, 0, 20, 0));
         titulo.setBackground(new Color(02,28, 30) );
         titulo.setForeground( new Color(44,120, 115) );
@@ -50,14 +50,15 @@ public class PMenuPrincipal extends JPanel {
         panelCentral.add (boton1, BorderLayout.CENTER);      
         panelCentral.add (boton2, BorderLayout.CENTER);
         //se crean las margenes y se agrega el panel central al panel principal
-        panelCentral.setBorder(new EmptyBorder(0, 120, 0, 120));
+        panelCentral.setBorder(new EmptyBorder(0, 120 , 0, 120 ));
         this.add(panelCentral, BorderLayout.CENTER);
         //Se crea panel sur y se le añade boton guardar
         panelAbajo = new JPanel();
-        panelAbajo.add(new JButton("Guardar"), BorderLayout.CENTER);
-        panelAbajo.setBorder(new EmptyBorder(0, 0, 0, 0));
+        panelAbajo.add(new JButton("Guardar"), BorderLayout.SOUTH);
+        panelAbajo.setBorder(new EmptyBorder(50, 0, 50, 0));
         panelAbajo.setBackground(new Color(02,28, 30) );
         panelAbajo.setForeground( new Color(111,185, 143) );
+
         this.add(panelAbajo, BorderLayout.SOUTH);
 
     }
