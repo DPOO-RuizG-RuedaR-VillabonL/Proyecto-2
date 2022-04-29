@@ -1,4 +1,4 @@
-package Mundo.Aplicacion;
+/*package Mundo.Aplicacion;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,7 +18,7 @@ public class Aplicacion {
      * @throws IOException
      * @throws FileNotFoundException
      * @throws ClassNotFoundException
-	 */
+	 
 	public void ejecutarAplicacion() throws FileNotFoundException, IOException, ClassNotFoundException
 	{
         MenuProyectos menuProyectos = new MenuProyectos();
@@ -88,4 +88,4 @@ public class Aplicacion {
     
      
 }
-
+*/

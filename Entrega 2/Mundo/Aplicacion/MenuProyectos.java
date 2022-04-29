@@ -11,7 +11,9 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
 
 import Mundo.Actividades.Participante;
 import Mundo.Proyectos.Proyecto;
@@ -21,43 +23,25 @@ public class MenuProyectos
     ArrayList<Proyecto> proyectos = new ArrayList<Proyecto>();
     File fichero = new File("proyectos.txt");
 	
-	public void ejecutarCrearProyecto()
+	public Boolean ejecutarCrearProyecto(String nombre, String descripcion, String participante, String correo, String fecha, String tipos)
 	{
-		String nombre = input("Por favor ingrese el nombre del proyecto ");
-        String descripcion = input("Por favor ingrese la descripcion del proyecto ");
-        String nombreP = input("Por favor ingrese el nombre completo del participante que comenzó el proyecto ");
-        String correo = input("Por favor ingrese el correo del participante que comenzó el proyecto ");
-
-        int anioInicio = Integer.parseInt(input("Por favor ingrese el año de inicio del proyecto "));
-        int mesInicio = Integer.parseInt(input("Por favor ingrese el número del mes de inicio del proyecto"));
-		int diaInicio = Integer.parseInt(input("Por favor ingrese el día de inicio del proyecto "));
-
-        String[] tipos = ((input("Por favor ingrese los tipos de actividad permitidos separados por comas ")).toLowerCase()).split(", ");
-        ArrayList<String> tiposActividad = new ArrayList<String>();
-        for (String tipo : tipos)
-        {tiposActividad.add(tipo);}
+        try {
+            String[] tiposA = tipos.toLowerCase().replace(" ", "").split(", ");
+            ArrayList<String> tiposActividad = new ArrayList<String>();
+            for (String tipo : tiposA)
+            {tiposActividad.add(tipo);}
 		
-        LocalDate fechaInicio = LocalDate.of(anioInicio, mesInicio, diaInicio);
+            LocalDate fechaInicio = LocalDate.parse(fecha, DateTimeFormatter.ISO_LOCAL_DATE );
 
-		Proyecto nuevoProyecto = new Proyecto(nombre, descripcion, nombreP, correo, fechaInicio, tiposActividad);
-
-        String respuesta = input("¿Tiene una fecha de finalización estimada? Escriba sí o no: ");
-        if ((respuesta.toLowerCase()).equals("si") | (respuesta.toLowerCase()).equals("sí"))
-        {
-            int anioFin = Integer.parseInt(input("Por favor ingrese el año de fin del proyecto:"));
-            int mesFin = Integer.parseInt(input("Por favor ingrese el número del mes de fin del proyecto:"));
-            int diaFin = Integer.parseInt(input("Por favor ingrese el día de fin del proyecto:"));
-		    
-            nuevoProyecto.setFechaFinal(diaFin, mesFin, anioFin);
-        }
-        else
-        {
+            Proyecto nuevoProyecto = new Proyecto(nombre, descripcion, participante, correo, fechaInicio, tiposActividad);
             nuevoProyecto.setFechaFinal(31, 12, 3022);
+            proyectos.add(nuevoProyecto);
+            return true;
+            
+        } catch (Exception e) {
+            return false;
         }
 
-		proyectos.add(nuevoProyecto);
-
-		System.out.println("El proyecto se ha creado");
 	}
 
     public ArrayList<Proyecto> getProyectos() 
@@ -119,7 +103,7 @@ public class MenuProyectos
                     menuActividades.gestionarMenuActividades(participante);
                 }
                 else if (opcion_seleccionada == 8)
-					cambiarFechaFinalizacion(proyecto);
+					cambiarFechaFinalizacion(proyecto, null);
 				else if (opcion_seleccionada == 9) {
 					System.out.println("Volviendo al menú principal ...");
 					continuar = false;
@@ -185,31 +169,16 @@ public class MenuProyectos
 
     }
 
-    private void cambiarFechaFinalizacion(Proyecto proyecto) 
+    public Boolean cambiarFechaFinalizacion(Proyecto proyecto, String fecha) 
     {
-        LocalDate fechaFin = proyecto.getFechaFinal();
-        LocalDate fechaEstandar = LocalDate.parse("3022-12-31");
-        int anioFin = Integer.parseInt(input("Por favor ingrese el año de fin del proyecto"));
-        int mesFin = Integer.parseInt(input("Por favor ingrese el número del mes de fin del proyecto"));
-        int diaFin = Integer.parseInt(input("Por favor ingrese el día de fin del proyecto"));
-
-        System.out.println(fechaFin);
-        System.out.println(fechaEstandar);
-
-        if (fechaFin.equals(fechaEstandar)) // comprobar que no hay fecha asignada 
-        {
-            proyecto.setFechaFinal(diaFin, mesFin, anioFin);
-            System.out.println("La fecha ya fue modificada");
-
+        try {
+            proyecto.setFechaFinal(LocalDate.parse(fecha));
+            return true;
+            
+        } catch (Exception e) {
+            return false;
         }
-        else //tiene fecha de modificación asignada
-        {
-            String respuesta = input("El proyecto ya tiene una fecha de modificación asignada, ¿Quiere modificarlo igualmente? Escriba si o no: ");
-            if ((respuesta.toLowerCase()).equals("si") | (respuesta.toLowerCase()).equals("sí")) {
-                proyecto.setFechaFinal(diaFin, mesFin, anioFin);
-                System.out.println("La fecha ya fue modificada");
-            }
-        }
+            
 
 
 
