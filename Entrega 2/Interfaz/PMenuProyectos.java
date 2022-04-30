@@ -6,8 +6,6 @@ import java.awt.Color;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
 import javax.swing.JButton; 
 import javax.swing.JLabel;
 import javax.swing.border.*;
@@ -20,7 +18,7 @@ import javax.swing.JPanel;
 
 public class PMenuProyectos extends JPanel implements ActionListener
 {
-    private VentanaMenuPrincipal ventanaMenuPrincipal;
+    private VentanaMenuProyectos ventanaMenuProyectos;
     private JPanel panelCentral;
     private JPanel panelAbajo;
     public final String CREAR = "CREAR";
@@ -29,7 +27,7 @@ public class PMenuProyectos extends JPanel implements ActionListener
     public final String GUARDAR = "GUARDAR";
 
     public PMenuProyectos(VentanaMenuProyectos ventanaMenuProyectos, Proyecto proyecto ) {
-        this.ventanaMenuPrincipal = ventanaMenuPrincipal;
+        this.ventanaMenuProyectos = ventanaMenuProyectos;
         this.setBackground(new Color(02,28, 30) ); //fondo color principal
 
         GridLayout grid = new GridLayout(3, 1, 0, 0); //será un tabla (fila, columna, espacios entre cuadros (horizotal y vertical))
@@ -94,12 +92,7 @@ public class PMenuProyectos extends JPanel implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
-        try {
-            ventanaMenuPrincipal.cambiarPanel(comando);
-        } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
+        ventanaMenuProyectos.cambiarPanel(comando);
         
     }
 

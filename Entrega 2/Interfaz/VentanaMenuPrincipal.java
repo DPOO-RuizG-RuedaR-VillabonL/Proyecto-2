@@ -62,7 +62,7 @@ public class VentanaMenuPrincipal extends JFrame {
             menuProyectos.guardarProgreso();
 
         }else{
-
+            ElegirProyecto(comando);
         }
         setSize(getWidth()-1, getHeight()-1);
     } 
