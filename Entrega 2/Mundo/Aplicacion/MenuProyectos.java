@@ -20,8 +20,12 @@ import Mundo.Proyectos.Proyecto;
 
 public class MenuProyectos
 {
-    ArrayList<Proyecto> proyectos = new ArrayList<Proyecto>();
+    ArrayList<Proyecto> proyectos;
     File fichero = new File("proyectos.txt");
+
+    public MenuProyectos(){
+        proyectos = new ArrayList<Proyecto>();
+    }
 	
 	public Boolean ejecutarCrearProyecto(String nombre, String descripcion, String participante, String correo, String fecha, String tipos)
 	{
@@ -49,23 +53,11 @@ public class MenuProyectos
         return proyectos;
     }
 
-    public Proyecto elegirProyecto()
+    public Proyecto elegirProyecto(int num)
     {
-        if (proyectos.size()==0){
-            System.out.println("Todavia no ha creado proyectos para gestionar");
-            return null;
-        }
-        else {
-        for(int i=0; i<proyectos.size(); i++)
-        {
-            Proyecto proyecto = proyectos.get(i);
-            System.out.println((i+1) +". "+ proyecto.getNombre());
-        }
-
-        int numProyecto = Integer.parseInt(input("Por favor ingrese el numero del proyecto que desea gestionar "));
-        Proyecto proyecto = proyectos.get(numProyecto-1);
+        Proyecto proyecto = proyectos.get(num-1);
         return proyecto;
-        }
+        
     }
 
     public void gestionarProyecto(Proyecto proyecto)

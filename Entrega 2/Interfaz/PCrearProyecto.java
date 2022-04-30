@@ -32,7 +32,7 @@ public class PCrearProyecto extends JPanel implements ActionListener
     private JTextField textoTipos;
 
     public final String MENU = "MENU";
-    public final String ACEPTAR = "ACEPTAR"; 
+    public final String CREAR = "CREAR"; 
 
     public PCrearProyecto(VentanaMenuPrincipal ventanaMenuPrincipal){
 
@@ -108,7 +108,7 @@ public class PCrearProyecto extends JPanel implements ActionListener
         panelAbajo.add(btnMenu);
 
         JButton btnAceptar = new JButton("Aceptar");
-        btnAceptar.setActionCommand(ACEPTAR);
+        btnAceptar.setActionCommand(CREAR);
         btnAceptar.addActionListener(this);
         panelAbajo.add(btnAceptar);
         this.add(panelAbajo, BorderLayout.SOUTH);
@@ -124,7 +124,7 @@ public class PCrearProyecto extends JPanel implements ActionListener
             // TODO Auto-generated catch block
             e2.printStackTrace();
         }
-        if (comando==ACEPTAR){
+        if (comando==CREAR){
             String nombre = textoNombre.getText();
             String descripcion = textoDescripcion.getText();
             String participante = textoParticipante.getText();
