@@ -1,14 +1,19 @@
 package Interfaz;
-import java.awt.Component;
 
 import javax.swing.JFrame;
+
+import Mundo.Actividades.Participante;
+import Mundo.Aplicacion.MenuActividades;
 
 
 public class VentanaMenuActividades extends JFrame {
     PAgregaTipoActividad pAgregaTipoActividad;
     PGestorActividades pGestorActividades;
 
-    public void AgregarTipoActividad () {
+    public VentanaMenuActividades(MenuActividades menuActividades, Participante participante) {
+    }
+
+    public void ventanaMenuActividades () {
 
         pAgregaTipoActividad = new PAgregaTipoActividad(this);
 
@@ -22,7 +27,7 @@ public class VentanaMenuActividades extends JFrame {
     }
 
     public void GestorActividades () {
-        pGestorActividades = new pGestorActividades(this);
+        pGestorActividades = new PGestorActividades(this);
     
         setTitle("Gestor Actividades");
         setSize(500, 500);
