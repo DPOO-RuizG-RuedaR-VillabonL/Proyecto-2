@@ -17,9 +17,13 @@ public class VentanaMenuProyectos extends JFrame{
     PElegirParticipante pElegirParticipante;
     Proyecto proyecto;
     Participante participante;
-
-    public final String GESTIONAR = "GESTIONAR"; 
+ 
     public final String MENU = "MENU";
+    public final String MENUPPAL = "MENUPRINCIPAL";
+    public final String AGREGAR_PARTICIPANTES = "AGREGARPARTICIPANTES";
+    public final String AGREGAR_TIPO = "AGREGARTIPO";
+    public final String GESTIONAR = "GESTIONAR";
+    public final String MODIFICAR_FIN = "MODIFICARFIN";
 
     VentanaMenuProyectos(MenuProyectos menuProyectos, Proyecto proyecto){
         this.menuProyectos = menuProyectos;
@@ -37,6 +41,9 @@ public class VentanaMenuProyectos extends JFrame{
         if (comando == MENU){
             this.remove(pElegirParticipante);
             this.add(pMenuProyectos);
+
+        }else if (comando == MENUPPAL){
+            this.setVisible(false);
 
         }else if (comando == GESTIONAR){
             this.remove(pMenuProyectos);

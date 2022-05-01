@@ -80,10 +80,10 @@ public class VentanaMenuPrincipal extends JFrame {
         cambiarPanel(MENU);
     }
 
-    public void ElegirProyecto(String boton){
+    public void ElegirProyecto(String boton) throws FileNotFoundException, IOException{
         int num = Integer.parseInt(boton.replace("PROYECTO ", ""));
         proyecto = menuProyectos.elegirProyecto(num);
-        this.setVisible(false);
+        cambiarPanel(MENU);
         new VentanaMenuProyectos(menuProyectos, proyecto);
     }
 }
