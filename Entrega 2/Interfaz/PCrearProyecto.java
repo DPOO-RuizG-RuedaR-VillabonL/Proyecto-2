@@ -13,28 +13,30 @@ import javax.swing.border.EmptyBorder;
 
 public class PCrearProyecto extends JPanel
 {
+    private VentanaMenuPrincipal ventanaMenuPrincipal;
     private JLabel label;
     private JPanel panelCentral;
     private JPanel panelAbajo;
 
     public PCrearProyecto(VentanaMenuPrincipal ventanaMenuPrincipal){
 
+        this.ventanaMenuPrincipal = ventanaMenuPrincipal;
         this.setLayout(new BorderLayout());
         label = new JLabel("Crear Proyecto", SwingConstants.CENTER);
         label.setFont(new Font("Aharoni", Font.BOLD, 30));
-        label.setBorder(new EmptyBorder(50, 0, 100, 0)); //hacer borde más grueso apra tener un espacio vacio entre cosas
-        this.add(label, BorderLayout.NORTH); // añadir label al panel en el norte
+        label.setBorder(new EmptyBorder(50, 0, 100, 0));
+        this.add(label, BorderLayout.NORTH);
 
-        panelCentral = new JPanel(); // crear un panel dentro de otro
-        GridLayout grid = new GridLayout(4, 2, 5, 2); //será un tabla (fila, columna, espacios entre cuadros (horizotal y vertical))
+        panelCentral = new JPanel();
+        GridLayout grid = new GridLayout(4, 2, 50, 20);
         panelCentral.setLayout(grid);
-        JTextField textoNombre = new JTextField(SwingConstants.CENTER); // se crean los text field 
+        JTextField textoNombre = new JTextField(SwingConstants.CENTER);
         JTextField textoDescripcion = new JTextField();
         JTextField textoParticipante = new JTextField();
         JTextField textoCorreo = new JTextField();
-        panelCentral.setBorder(new EmptyBorder(50, 100, 50, 50)); // se hace un borde vacío para central todo
+        panelCentral.setBorder(new EmptyBorder(50, 100, 50, 50));
 
-        panelCentral.add(new JLabel("Ingrese el nombre del proyecto", SwingConstants.LEFT)); //añadir los texts al panel (importa el orden )
+        panelCentral.add(new JLabel("Ingrese el nombre del proyecto", SwingConstants.LEFT));
         panelCentral.add(textoNombre);
         panelCentral.add(new JLabel("Ingrese la descripción del proyecto", SwingConstants.LEFT));
         panelCentral.add(textoDescripcion);
