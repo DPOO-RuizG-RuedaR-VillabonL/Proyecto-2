@@ -152,18 +152,14 @@ public class MenuActividades
 		System.out.println("La actividad se ha creado");
         this.participante.agregarActividad(nuevaActividad);
 	}
-    public Participante elegirParticipante(Proyecto proyecto)
+
+    public Participante elegirParticipante(Proyecto proyecto, int num)
     {   
         this.tiposActividad = proyecto.getTiposActividad();
         ArrayList<Participante> participantes = proyecto.getParticipantes();
-        for(int i=0; i<participantes.size(); i++)
-        {
-            Participante participante = participantes.get(i);
-            System.out.println((i+1) +". "+ participante.getNombre());
-        }
-        int numParticipante = Integer.parseInt(input("Por favor ingrese el numero del participante que desea gestionar "));
-        Participante participante = participantes.get(numParticipante-1);
-        setParticipante(participante);
+ 
+        Participante participante = participantes.get(num-1);
+
         return participante;
         
     }

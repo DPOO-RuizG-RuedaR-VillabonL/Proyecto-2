@@ -91,7 +91,7 @@ public class MenuProyectos
                 
                 else if (opcion_seleccionada == 7)
                 {
-                    Participante participante = menuActividades.elegirParticipante(proyecto);
+                    Participante participante = menuActividades.elegirParticipante(proyecto, opcion_seleccionada);
                     menuActividades.gestionarMenuActividades(participante);
                 }
                 else if (opcion_seleccionada == 8)
@@ -171,8 +171,6 @@ public class MenuProyectos
             return false;
         }
             
-
-
 
     }
 

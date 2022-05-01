@@ -17,6 +17,7 @@ import Mundo.Proyectos.Proyecto;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class PAgregarFechaF extends JPanel implements ActionListener
 {
@@ -79,7 +80,12 @@ public class PAgregarFechaF extends JPanel implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
-        ventanaMenuProyectos.cambiarPanel(comando);
+        try {
+            ventanaMenuProyectos.cambiarPanel(comando);
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
         if (comando==ACEPTAR){
             String fecha = textoFecha.getText();
 
