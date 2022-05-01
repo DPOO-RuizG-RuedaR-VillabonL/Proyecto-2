@@ -19,7 +19,7 @@ public class PMenuPrincipal extends JPanel {
     public PMenuPrincipal(VentanaMenuPrincipal ventanaMenuPrincipal) {
         this.setBackground(new Color(02,28, 30) ); //fondo color principal
 
-        GridLayout grid = new GridLayout(3, 1, 0, 0); //será un tabla (fila, columna, espacios entre cuadros (horizotal y vertical))
+        GridLayout grid = new GridLayout(3, 1, 0, 0);
         this.setLayout(grid);
         //se crea un panel central de una columna y dos filas 
         panelCentral = new JPanel(); 
