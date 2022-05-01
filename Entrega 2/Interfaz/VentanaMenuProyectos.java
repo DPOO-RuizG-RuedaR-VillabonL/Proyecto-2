@@ -1,7 +1,6 @@
 package Interfaz;
 
 import javax.swing.JFrame;
-
 import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,6 +9,7 @@ import Mundo.Actividades.Participante;
 import Mundo.Aplicacion.MenuActividades;
 import Mundo.Aplicacion.MenuProyectos;
 import Mundo.Proyectos.Proyecto;
+
 
 public class VentanaMenuProyectos extends JFrame{
     MenuProyectos menuProyectos;

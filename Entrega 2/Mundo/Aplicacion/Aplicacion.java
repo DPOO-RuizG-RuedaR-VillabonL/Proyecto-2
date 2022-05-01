@@ -1,17 +1,16 @@
 /*package Mundo.Aplicacion;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Pipe
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import Mundo.Proyectos.Proyecto;
-
 public class Aplicacion {
-
     //Prueba rama Mariana
-
-    /**
+    /*
 	 * Ejecuta la aplicación: le muestra el menú al usuario y la pide que ingrese
 	 * una opción, y ejecuta la opción seleccionada por el usuario. Este proceso se
 	 * repite hasta que el usuario seleccione la opción de abandonar la aplicación.
@@ -23,7 +22,6 @@ public class Aplicacion {
 	{
         MenuProyectos menuProyectos = new MenuProyectos();
 		menuProyectos.cargarProyectos();
-
 		boolean continuar = true;
 		while (continuar)
 		{
@@ -55,7 +53,6 @@ public class Aplicacion {
 			}
 		}
 	}
-
 	public void mostrarMenu()
 	{
 		System.out.println("\nBienvenido al gestor de proyectos\n");
@@ -63,7 +60,6 @@ public class Aplicacion {
 		System.out.println("2. Gestionar proyecto"); 
 		System.out.println("3. Salir de la aplicación\n");
 	}
-
     public String input(String mensaje)
 	{
 		try
@@ -87,5 +83,9 @@ public class Aplicacion {
     }
     
      
+<<<<<<< HEAD
 }
 */
+=======
+}*/
+>>>>>>> origin/Pipe
