@@ -59,7 +59,7 @@ public class Actividad implements Serializable
         double diffFechas = fechasss * 86400;
         double diffHoras = horasss;
         double diffs = diffFechas + diffHoras;
-        duracion = diffs*2;
+        duracion = diffs;
 
         while(itFecha.hasNext())
         {
