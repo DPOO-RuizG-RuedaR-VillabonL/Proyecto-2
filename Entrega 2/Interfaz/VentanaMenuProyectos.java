@@ -86,6 +86,7 @@ public class VentanaMenuProyectos extends JFrame{
             this.add(pDescripcion);
 
         }else if (comando == PARTICIPANTES){
+            pParticipantes = new PParticipantes(this, proyecto);
             this.remove(pMenuProyectos);
             this.add(pParticipantes);
 

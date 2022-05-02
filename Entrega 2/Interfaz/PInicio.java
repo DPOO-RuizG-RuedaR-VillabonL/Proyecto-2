@@ -12,6 +12,8 @@ import Mundo.Proyectos.Proyecto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.*;
 
@@ -42,7 +44,7 @@ public class PInicio extends JPanel implements ActionListener{
 
         BorderLayout grid = new BorderLayout();
         this.setLayout(grid);
-        JLabel titulo = new JLabel("Descripción  "+ this.proyecto.getNombre(), SwingConstants.CENTER);
+        JLabel titulo = new JLabel("Fecha Inicio  "+ this.proyecto.getNombre(), SwingConstants.CENTER);
         titulo.setOpaque(true);
         titulo.setFont(new Font("Aharoni", Font.BOLD, 26 ));
         titulo.setBorder(new EmptyBorder(50, 0, 20, 0));
@@ -51,13 +53,19 @@ public class PInicio extends JPanel implements ActionListener{
         this.add(titulo, BorderLayout.NORTH);
 
         //se crea un panel central de una columna y dos filas 
+        //se crea un panel central de una columna y dos filas 
         panelCentral = new JPanel(); 
         GridLayout grid1 = new GridLayout(9, 1, 0, 10);
         panelCentral.setLayout(grid1);
         panelCentral.setBackground(new Color(02,28, 30) ); //fondo color principal
 
         //se crea texto instrucción, boton1 y boton2 y se añaden al panel central
-        JLabel instruccion = new JLabel(proyecto.getDescripcion(), SwingConstants.CENTER);
+
+        LocalDate FechaInicio = proyecto.getFechaInicial();//For reference
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        String Inicio = FechaInicio.format(formatter);
+
+        JLabel instruccion = new JLabel(Inicio, SwingConstants.CENTER);
         instruccion.setOpaque(true);
         instruccion.setFont(new Font("Congenial SemiBold", Font.PLAIN, 20));
         instruccion.setBackground(new Color(02,28, 30) ); //fondo principal

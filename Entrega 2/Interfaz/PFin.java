@@ -12,6 +12,8 @@ import Mundo.Proyectos.Proyecto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.*;
 
@@ -57,7 +59,12 @@ public class PFin extends JPanel implements ActionListener{
         panelCentral.setBackground(new Color(02,28, 30) ); //fondo color principal
 
         //se crea texto instrucción, boton1 y boton2 y se añaden al panel central
-        JLabel instruccion = new JLabel(proyecto.getDescripcion(), SwingConstants.CENTER);
+
+        LocalDate FechaInicio = proyecto.getFechaFinal();//For reference
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        String Inicio = FechaInicio.format(formatter);
+
+        JLabel instruccion = new JLabel(Inicio, SwingConstants.CENTER);
         instruccion.setOpaque(true);
         instruccion.setFont(new Font("Congenial SemiBold", Font.PLAIN, 20));
         instruccion.setBackground(new Color(02,28, 30) ); //fondo principal

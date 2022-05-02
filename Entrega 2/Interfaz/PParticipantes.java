@@ -7,11 +7,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.border.*;
 
+import Mundo.Actividades.Participante;
 import Mundo.Proyectos.Proyecto;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -56,10 +58,30 @@ public class PParticipantes extends JPanel implements ActionListener{
         panelCentral.setLayout(grid1);
         panelCentral.setBackground(new Color(02,28, 30) ); //fondo color principal
 
-        //se crea texto instrucción, boton1 y boton2 y se añaden al panel central
-        JLabel instruccion = new JLabel(proyecto.getDescripcion(), SwingConstants.CENTER);
-        
-        panelCentral.add(instruccion, BorderLayout.CENTER);
+        //se crea texto nombre al panel central
+        ArrayList<Participante> participantes = proyecto.getParticipantes();
+        int i;
+        for (i = 0; i < participantes.size(); i++){
+            String nombre = participantes.get(i).getNombre();
+            String correo = participantes.get(i).getCorreo();
+
+            JLabel nombreT = new JLabel(nombre, SwingConstants.CENTER);
+            nombreT.setOpaque(true);
+            nombreT.setFont(new Font("Congenial SemiBold", Font.PLAIN, 20));
+            nombreT.setBackground(new Color(02,28, 30) ); //fondo principal
+            nombreT.setForeground( new Color(111,185, 143) ); //letra principal
+            panelCentral.add(nombreT, BorderLayout.CENTER);
+
+            JLabel correoT = new JLabel(correo, SwingConstants.CENTER);
+            correoT.setOpaque(true);
+            correoT.setFont(new Font("Congenial SemiBold", Font.PLAIN, 20));
+            correoT.setBackground(new Color(02,28, 30) ); //fondo principal
+            correoT.setForeground( new Color(111,185, 143) ); //letra principal
+            panelCentral.add(correoT, BorderLayout.CENTER);
+
+
+            
+        }
 
         //se crean las margenes y se agrega el panel central al panel principal
         panelCentral.setBorder(new EmptyBorder(0, 300 , 0, 300 ));
