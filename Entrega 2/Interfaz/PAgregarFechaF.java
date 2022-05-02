@@ -29,7 +29,7 @@ public class PAgregarFechaF extends JPanel implements ActionListener
     private JFormattedTextField textoFecha;
 
     public final String MENU = "MENU";
-    public final String ACEPTAR = "ACEPTAR"; 
+    public final String AGREGAR_P = "AGREGAR_P";
 
     public PAgregarFechaF(VentanaMenuProyectos ventanaMenuProyectos, Proyecto proyecto){
 
@@ -70,7 +70,7 @@ public class PAgregarFechaF extends JPanel implements ActionListener
         panelAbajo.add(btnMenu);
 
         JButton btnAceptar = new JButton("Aceptar");
-        btnAceptar.setActionCommand(ACEPTAR);
+        btnAceptar.setActionCommand(AGREGAR_P);
         btnAceptar.addActionListener(this);
         panelAbajo.add(btnAceptar);
         this.add(panelAbajo, BorderLayout.SOUTH);
@@ -86,7 +86,7 @@ public class PAgregarFechaF extends JPanel implements ActionListener
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        if (comando==ACEPTAR){
+        if (comando==AGREGAR_P){
             String fecha = textoFecha.getText();
 
             if (fecha.length()==0){
@@ -94,7 +94,12 @@ public class PAgregarFechaF extends JPanel implements ActionListener
 				"Error", JOptionPane.ERROR_MESSAGE);
             }
             else {
-            ventanaMenuProyectos.cambiarFechaFinalizacion(proyecto, fecha);
+            try {
+                ventanaMenuProyectos.cambiarFechaFinalizacion(proyecto, fecha);
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
             }
         }
         

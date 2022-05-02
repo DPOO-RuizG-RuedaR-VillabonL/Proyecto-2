@@ -8,19 +8,23 @@ import java.io.IOException;
 import javax.swing.JButton; 
 import javax.swing.JLabel;
 import javax.swing.border.*;
+
+import Mundo.Proyectos.Proyecto;
+
 import javax.swing.*;
 
 public class PAgregarParticipante extends JPanel implements ActionListener{
     private VentanaMenuProyectos ventanaMenuProyectos;
     private JPanel panelCentral;
     private JPanel panelAbajo;
-    private String AGREGAR = ("AGREGAR");
-    private String MENUPPAL = ("MENUPRINCIPAL");
+    private JTextField rta1;
+    private JTextField rta2;
+    public final String AGREGAR_P = "AGREGAR_P";
+    public final String MENU = "MENU";
 
 
-    public PAgregarParticipante (VentanaMenuProyectos ventanaMenuProyectos) {
+    public PAgregarParticipante (VentanaMenuProyectos ventanaMenuProyectos, Proyecto proyecto) {
         this.ventanaMenuProyectos= ventanaMenuProyectos;
-    
         this.setBackground(new Color(02,28, 30) ); //fondo color principal
 
         GridLayout grid = new GridLayout(3, 1, 0, 0);
@@ -47,8 +51,8 @@ public class PAgregarParticipante extends JPanel implements ActionListener{
         Inst2.setBorder(new EmptyBorder(50, 0, 20, 0));
         Inst2.setBackground(new Color(02,28, 30) );
         Inst2.setForeground( new Color(44,120, 115) );
-        JTextField rta1 = (new JTextField());
-        JTextField rta2 = (new JTextField());
+        rta1 = (new JTextField());
+        rta2 = (new JTextField());
         panelCentral.add (Inst1, BorderLayout.CENTER);
         panelCentral.add (rta1, BorderLayout.CENTER);      
         panelCentral.add (Inst2, BorderLayout.CENTER); 
@@ -59,10 +63,10 @@ public class PAgregarParticipante extends JPanel implements ActionListener{
         //Se crea panel sur y se le añade boton Agregar
         panelAbajo = new JPanel();
         JButton boton1 = (new JButton("Agregar"));
-        boton1.setActionCommand(AGREGAR);
+        boton1.setActionCommand(AGREGAR_P);
         boton1.addActionListener((ActionListener) this);
-        JButton boton2 = (new JButton("Menu Principal"));
-        boton2.setActionCommand(MENUPPAL);
+        JButton boton2 = (new JButton("Menu Proyectos"));
+        boton2.setActionCommand(MENU);
         boton2.addActionListener((ActionListener) this);
         panelAbajo.add(boton1, BorderLayout.WEST);
         panelAbajo.add(boton2, BorderLayout.EAST);
@@ -82,6 +86,23 @@ public class PAgregarParticipante extends JPanel implements ActionListener{
         } catch (IOException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
+        }
+        if (comando==AGREGAR_P){
+            String nombre = rta1.getText();
+            String correo = rta2.getText();
+
+            if (nombre.length()==0 || correo.length()==0){
+                JOptionPane.showMessageDialog(panelCentral, "Por favor escriba en todos los campos antes de continuar",
+				"Error", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+            try {
+                ventanaMenuProyectos.AgregarParticipante(nombre, correo);
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+            }
         }
         
     }

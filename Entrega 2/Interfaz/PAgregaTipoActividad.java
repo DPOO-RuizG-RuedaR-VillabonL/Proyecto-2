@@ -1,5 +1,8 @@
 package Interfaz;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.*;
 
 import javax.swing.JButton; 
@@ -9,15 +12,17 @@ import javax.swing.border.*;
 import javax.swing.*;
 
 
-public class PAgregaTipoActividad extends JPanel{
+public class PAgregaTipoActividad extends JPanel implements ActionListener{
     private JPanel panelNorte;
     private JPanel panelCentral;
     private JPanel panelAbajo;
+    private JTextField cuadroTexto;
+    private VentanaMenuProyectos ventanaMenuProyectos;
+    public final String AGREGAR_P = "AGREGAR_P";
+    public final String MENU = "MENU";
 
-    public PAgregaTipoActividad(VentanaMenuActividades ventanaMenuActividades2) {
-    }
-
-    public void PMenuActividades (VentanaMenuActividades ventanaMenuActividades){
+    public PAgregaTipoActividad(VentanaMenuProyectos ventanaMenuProyectos) {
+        this.ventanaMenuProyectos = ventanaMenuProyectos;
 
         this.setBackground(new Color(02,28, 30) ); //fondo principal
         GridLayout grid = new GridLayout(3, 1, 5, 20);
@@ -44,30 +49,59 @@ public class PAgregaTipoActividad extends JPanel{
         elemento.setFont(new Font("Congenial SemiBold", Font.PLAIN, 20));
         elemento.setBackground(new Color(02,28, 30) ); //fondo principal
         elemento.setForeground( new Color(111,185, 143) ); //letra principal
-        JTextField cuadroTexto = new JTextField();
+        cuadroTexto = new JTextField();
         cuadroTexto.setOpaque(true);
         panelCentral.add(elemento);
         panelCentral.add(cuadroTexto);
         //crear panel sur
         panelAbajo = new JPanel();
-        panelAbajo.setBackground(new Color(02,28, 30) ); //fondo principal
-        GridLayout grid2 = new GridLayout(1, 2, 0, 5); 
-        panelAbajo.setLayout(grid2);
-        //crear y agregar elementos de panel sur
-        JButton boton1 = (new JButton("Menu principal"));
-        JButton boton2 = (new JButton("Agregar"));
-        boton1.setBackground(new Color(111,185, 143)  ); //fondo botones
-        boton1.setForeground(new Color(02,28, 30) ); //letra botones
-        boton2.setBackground(new Color(111,185, 143)  );
-        boton2.setForeground(new Color(02,28, 30) );
-        panelAbajo.add(boton1);
-        panelAbajo.add(boton2);
+        JButton boton1 = (new JButton("Agregar"));
+        boton1.setActionCommand(AGREGAR_P);
+        boton1.addActionListener((ActionListener) this);
+        JButton boton2 = (new JButton("Menu Proyectos"));
+        boton2.setActionCommand(MENU);
+        boton2.addActionListener((ActionListener) this);
+        panelAbajo.add(boton1, BorderLayout.WEST);
+        panelAbajo.add(boton2, BorderLayout.EAST);
+        panelAbajo.setBorder(new EmptyBorder(50, 0, 50, 0));
+        panelAbajo.setBackground(new Color(02,28, 30) );
+        panelAbajo.setForeground( new Color(111,185, 143) );
+
+        this.add(panelAbajo, BorderLayout.SOUTH);
+        
         //agregar paneles secudarios a paneles principalesP
         this.add(panelNorte);
         this.add(panelCentral);
         this.add(panelAbajo);
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String comando = e.getActionCommand();
+        try {
+            ventanaMenuProyectos.cambiarPanel(comando);
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        if (comando==AGREGAR_P){
+            String tipo = cuadroTexto.getText();
+
+            if (tipo.length()==0){
+                JOptionPane.showMessageDialog(panelCentral, "Por favor escriba en el campos antes de continuar",
+				"Error", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else {
+            try {
+                ventanaMenuProyectos.AgregarTipo(tipo);
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+            }
+        
+    }
+
 
     
-}
+}}

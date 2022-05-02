@@ -27,6 +27,7 @@ public class VentanaMenuPrincipal extends JFrame {
         menuProyectos = new MenuProyectos();
         pCrearProyecto = new PCrearProyecto(this);
         pMenuPrincipal = new PMenuPrincipal(this);
+        pElegirProyecto = new PElegirProyecto(this, menuProyectos.getProyectos());
         menuProyectos.cargarProyectos();
 
         setTitle("Menu principal");

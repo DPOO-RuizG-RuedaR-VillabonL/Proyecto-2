@@ -83,9 +83,5 @@ public class Aplicacion {
     }
     
      
-<<<<<<< HEAD
 }
 */
-=======
-}*/
->>>>>>> origin/Pipe

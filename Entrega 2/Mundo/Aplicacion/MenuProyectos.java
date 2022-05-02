@@ -84,10 +84,10 @@ public class MenuProyectos
                     ejecutarConsultarFechaFin(proyecto);
 
                 else if (opcion_seleccionada == 5)
-                    ejecutarAgregarParticipante(proyecto);
+                    ejecutarAgregarParticipante(proyecto, null, null);
                 
                 else if (opcion_seleccionada == 6)
-                    ejecutarAgregarTipo(proyecto);
+                    ejecutarAgregarTipo(proyecto, null);
                 
                 else if (opcion_seleccionada == 7)
                 {
@@ -113,25 +113,28 @@ public class MenuProyectos
 
     }
 
-    private void ejecutarAgregarTipo(Proyecto proyecto) 
+    public Boolean ejecutarAgregarTipo(Proyecto proyecto, String tipo) 
     {
-        System.out.println("Los tipos de actividades disponibles para este proyecto son: ");
-        ArrayList<String> tipos = proyecto.getTiposActividad();
-        for(int i=0; i<tipos.size(); i++)
-        {
-            String tipo = tipos.get(i);
-            System.out.println((i+1) +". "+ tipo);
+        try {
+            proyecto.getTiposActividad().add(tipo);
+            return true;
+            
+        } catch (Exception e) {
+            return false;
         }
-        String nuevoTipo = (input("Por favor escriba el nombre del tipo de actividad que desea agregar ")).toLowerCase();
-        (proyecto.getTiposActividad()).add(nuevoTipo);
+        
     }
 
-    private void ejecutarAgregarParticipante(Proyecto proyecto) 
+    public Boolean ejecutarAgregarParticipante(Proyecto proyecto, String nombre, String correo) 
     {
-        String nombre = input("Por favor escriba el nombre completo del participante que desea agregar ");
-        String correo = input("Por favor escriba el correo del participante que desea agregar ");
+        try {
         Participante nuevoParticipante = new Participante(nombre, correo);
         proyecto.agregarParticipante(nuevoParticipante);
+        return true;
+        
+    } catch (Exception e) {
+        return false;
+    }
     }
 
     private void ejecutarConsultarParticipantes(Proyecto proyecto) 
